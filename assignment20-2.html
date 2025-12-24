@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rupees to Dollar</title>
+    <style>
+        body {
+            background-color: #FFE4EF;
+        }
+
+        .app-heading {
+            text-align: center;
+            color: #000000;
+            font-size: 50px;
+        }
+
+        .container {
+            border: 1px solid #000;
+            width: 350px;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            background-color: #f4bad1;
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-number {
+            display: block;
+            width: 95%;
+            margin-bottom: 10px;
+            padding: 5px 20px;
+            border-radius: 20px;
+            border: none;
+            font-size: 20px;
+        }
+
+        .input-number:focus {
+            outline: none;
+        }
+
+        .btn {
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .btn-calculate {
+            background-color: #368607;
+        }
+
+        .btn-clear {
+            background-color: #a83d3d;
+        }
+
+        @media (max-width: 600px){
+            .container{
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="app-heading">Rupees to Dollar</h1>
+    <div class="container">
+            <input
+            type="number"
+            id="num1"
+            placeholder="Enter amount in Rupees"
+            class="input-number"
+            />
+
+        <p id="sum-result"></p>
+
+        <button class="btn btn-calculate" onclick="convertCurrency()">
+            Convert
+        </button>
+
+        <br>
+
+        <button class="btn btn-clear" onclick="clearData()">
+            Clear
+        </button>
+    </div>
+
+    <script>
+    function convertCurrency() {
+        const input1 = document.getElementById("num1");
+        const resultElement = document.getElementById("sum-result");
+
+        const rupees = parseFloat(input1.value);
+        const exchangeRate = 89; 
+
+        const dollars = rupees / exchangeRate;
+
+        resultElement.innerText =
+            `₹${rupees} = $${dollars.toFixed(2)}`;
+    }
+
+    function clearOutput() {
+        const input1 = document.getElementById("num1");
+        const resultElement = document.getElementById("sum-result");
+
+        input1.value = "";
+        resultElement.innerText = "";
+    }
+</script>
+</body>
+</html>
